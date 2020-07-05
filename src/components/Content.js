@@ -57,10 +57,10 @@ export default function Content() {
                   </div>
                   <div className="d-flex flex-row justify-content-end">
                     <span className="mr-2">
-                      <i className="fas fa-square text-primary" /> This Week
+                      <i className="fas fa-square text-primary" /> Employees
                     </span>
                     <span>
-                      <i className="fas fa-square text-gray" /> Last Week
+                      <i className="fas fa-square text-gray" /> Employers
                     </span>
                   </div>
                 </div>
@@ -68,7 +68,7 @@ export default function Content() {
               {/* /.card */}
               <div className="card">
                 <div className="card-header border-0">
-                  <h3 className="card-title">Products</h3>
+                  <h3 className="card-title">Recent Available jobs</h3>
                   <div className="card-tools">
                     <a href="#" className="btn btn-tool btn-sm">
                       <i className="fas fa-download" />
@@ -82,9 +82,9 @@ export default function Content() {
                   <table className="table table-striped table-valign-middle">
                     <thead>
                       <tr>
-                        <th>Product</th>
+                        <th>Job Title</th>
                         <th>Price</th>
-                        <th>Sales</th>
+                        <th>Engagements</th>
                         <th>More</th>
                       </tr>
                     </thead>
@@ -96,15 +96,15 @@ export default function Content() {
                             alt="Product 1"
                             className="img-circle img-size-32 mr-2"
                           />
-                          Some Product
+                          Job1
                         </td>
-                        <td>$13 USD</td>
+                        <td>Rs 1200</td>
                         <td>
                           <small className="text-success mr-1">
                             <i className="fas fa-arrow-up" />
                             12%
                           </small>
-                          12,000 Sold
+                          12 Engagements
                         </td>
                         <td>
                           <a href="#" className="text-muted">
@@ -119,15 +119,15 @@ export default function Content() {
                             alt="Product 1"
                             className="img-circle img-size-32 mr-2"
                           />
-                          Another Product
+                         job 2
                         </td>
-                        <td>$29 USD</td>
+                        <td>Rs 1500</td>
                         <td>
                           <small className="text-warning mr-1">
                             <i className="fas fa-arrow-down" />
                             0.5%
                           </small>
-                          123,234 Sold
+                          5 engagements
                         </td>
                         <td>
                           <a href="#" className="text-muted">
@@ -142,15 +142,15 @@ export default function Content() {
                             alt="Product 1"
                             className="img-circle img-size-32 mr-2"
                           />
-                          Amazing Product
+                          Job 3
                         </td>
-                        <td>$1,230 USD</td>
+                        <td>Rs 700</td>
                         <td>
                           <small className="text-danger mr-1">
                             <i className="fas fa-arrow-down" />
                             3%
                           </small>
-                          198 Sold
+                          19 engagements
                         </td>
                         <td>
                           <a href="#" className="text-muted">
@@ -165,16 +165,16 @@ export default function Content() {
                             alt="Product 1"
                             className="img-circle img-size-32 mr-2"
                           />
-                          Perfect Item
+                        job 4
                           <span className="badge bg-danger">NEW</span>
                         </td>
-                        <td>$199 USD</td>
+                        <td>Rs 3000</td>
                         <td>
                           <small className="text-success mr-1">
                             <i className="fas fa-arrow-up" />
                             63%
                           </small>
-                          87 Sold
+                          8 engagements
                         </td>
                         <td>
                           <a href="#" className="text-muted">
@@ -193,14 +193,14 @@ export default function Content() {
               <div className="card">
                 <div className="card-header border-0">
                   <div className="d-flex justify-content-between">
-                    <h3 className="card-title">Sales</h3>
+                    <h3 className="card-title">Vacancies overtime</h3>
                     <a href="javascript:void(0);">View Report</a>
                   </div>
                 </div>
                 <div className="card-body">
                   <div className="d-flex">
                     <p className="d-flex flex-column">
-                      <span className="text-bold text-lg">$18,230.00</span>
+                      <span className="text-bold text-lg">18 000</span>
                       <span>Sales Over Time</span>
                     </p>
                     <p className="ml-auto d-flex flex-column text-right">
@@ -227,7 +227,7 @@ export default function Content() {
               {/* /.card */}
               <div className="card">
                 <div className="card-header border-0">
-                  <h3 className="card-title">Online Store Overview</h3>
+                  <h3 className="card-title">Online Users Overview</h3>
                   <div className="card-tools">
                     <a href="#" className="btn btn-sm btn-tool">
                       <i className="fas fa-download" />
@@ -260,7 +260,7 @@ export default function Content() {
                         <i className="ion ion-android-arrow-up text-warning" />{" "}
                         0.8%
                       </span>
-                      <span className="text-muted">SALES RATE</span>
+                      <span className="text-muted">APPYINGRATE RATE</span>
                     </p>
                   </div>
                   {/* /.d-flex */}
