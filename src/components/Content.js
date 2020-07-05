@@ -8,7 +8,7 @@ export default function Content() {
         <div className="container-fluid">
           <div className="row mb-2">
             <div className="col-sm-6">
-              <h1 className="m-0 text-dark">Dashboard v3</h1>
+              <h1 className="m-0 text-dark">Dashboard Analytics</h1>
             </div>
             {/* /.col */}
             <div className="col-sm-6">
@@ -16,7 +16,7 @@ export default function Content() {
                 <li className="breadcrumb-item">
                   <a href="#">Home</a>
                 </li>
-                <li className="breadcrumb-item active">Dashboard v3</li>
+                <li className="breadcrumb-item active">Dashboard Analytics</li>
               </ol>
             </div>
             {/* /.col */}
@@ -34,7 +34,7 @@ export default function Content() {
               <div className="card">
                 <div className="card-header border-0">
                   <div className="d-flex justify-content-between">
-                    <h3 className="card-title">Online Store Visitors</h3>
+                    <h3 className="card-title">Online Users</h3>
                     <a href="javascript:void(0);">View Report</a>
                   </div>
                 </div>
