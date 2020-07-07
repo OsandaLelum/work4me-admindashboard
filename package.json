@@ -12,8 +12,12 @@
     "mobx-react": "^6.2.2",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
+<<<<<<< HEAD
     "react-scripts": "3.4.1",
     "vendor-copy": "^2.0.0"
+=======
+    "react-scripts": "^3.4.1"
+>>>>>>> 2c855d8b99e5a433d6b6d99329d315b3f9d93f45
   },
   "scripts": {
     "start": "react-scripts start",
@@ -35,5 +39,18 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
-  }
+  },
+  "description": "This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).",
+  "main": "index.js",
+  "devDependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/OsandaLelum/work4me-admindashboard.git"
+  },
+  "author": "osanda",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/OsandaLelum/work4me-admindashboard/issues"
+  },
+  "homepage": "https://github.com/OsandaLelum/work4me-admindashboard#readme"
 }
