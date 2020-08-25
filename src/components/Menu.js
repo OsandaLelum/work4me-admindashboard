@@ -4,19 +4,21 @@ export default function Menu() {
   return (
     <aside className="main-sidebar sidebar-dark-primary elevation-4">
       {/* Brand Logo */}
-      <a href="index3.html" className="brand-link">
-        <img
-          src="dist/img/AdminLTELogo.jpg"
-          alt="AdminLTE Logo"
-          className="brand-image img-circle elevation-3"
-          style={{ opacity: ".8" }}
-        />
-        <span className="brand-text font-weight-light">Work4Me</span>
-      </a>
+      <div className="user-panel mt-1 ml-2 d-flex">
+        <a href="index3.html" className="brand-link">
+          <img
+            src="dist/img/Logo.jpg"
+            alt="Work4Me"
+            className="brand-image img-responsive elevation-3"
+            style={{ opacity: ".8" }}
+          />
+          {/* <span className="brand-text font-weight-light">Work4Me</span> */}
+        </a>
+      </div>
       {/* Sidebar */}
       <div className="sidebar">
         {/* Sidebar user panel (optional) */}
-        <div className="user-panel mt-3 pb-3 mb-3 d-flex">
+        <div className="user-panel pb-3 pt-3 d-flex">
           <div className="image">
             <img
               src="dist/img/user2-160x160.jpg"
@@ -40,15 +42,15 @@ export default function Menu() {
           >
             {/* Add icons to the links using the .nav-icon class
              with font-awesome or any other icon font library */}
-            <li className="nav-item has-treeview menu-open">
-              <a href="#" className="nav-link active">
-                <i className="nav-icon fas fa-tachometer-alt" />
+            <li className="nav-item has-treeview">
+              <a href="#" className="nav-link">
+                <i className="nav-icon fas fa-chart-bar" />
                 <p>
                   Dashboard
-                  <i className="right fas fa-angle-left" />
+                  {/* <i className="right fas fa-angle-left" /> */}
                 </p>
               </a>
-              <ul className="nav nav-treeview">
+              {/* <ul className="nav nav-treeview">
                 <li className="nav-item">
                   <a href="./index.html" className="nav-link">
                     <i className="far fa-circle nav-icon" />
@@ -67,35 +69,35 @@ export default function Menu() {
                     <p>Dashboard-Analytics</p>
                   </a>
                 </li>
-              </ul>
+              </ul> */}
             </li>
         
             
             <li className="nav-item has-treeview">
               <a href="#" className="nav-link">
-                <i className="nav-icon fas fa-chart-pie" />
+                <i className="nav-icon fas fa-users" />
                 <p>
-                  Charts
-                  <i className="right fas fa-angle-left" />
+                  Users Accounts
+                  <i className="right fas fa-angle-down" />
                 </p>
               </a>
               <ul className="nav nav-treeview">
                 <li className="nav-item">
                   <a href="pages/charts/chartjs.html" className="nav-link">
-                    <i className="far fa-circle nav-icon" />
-                    <p>ChartJS</p>
+                    <i className="fas fa-user-plus nav-icon" />
+                    <p> Add User Accounts</p>
                   </a>
                 </li>
                 <li className="nav-item">
                   <a href="pages/charts/flot.html" className="nav-link">
-                    <i className="far fa-circle nav-icon" />
-                    <p>Flot</p>
+                    <i className="fas fa-user-edit nav-icon" />
+                    <p>Update User Accounts</p>
                   </a>
                 </li>
                 <li className="nav-item">
                   <a href="pages/charts/inline.html" className="nav-link">
-                    <i className="far fa-circle nav-icon" />
-                    <p>Inline</p>
+                    <i className="fas fa-user-times nav-icon" />
+                    <p> Remove User Accounts</p>
                   </a>
                 </li>
               </ul>
@@ -103,44 +105,42 @@ export default function Menu() {
            
             <li className="nav-item has-treeview">
               <a href="#" className="nav-link">
-                <i className="nav-icon fas fa-edit" />
+                <i className="nav-icon fas fa-file-signature" />
                 <p>
-                  Forms
-                  <i className="fas fa-angle-left right" />
+                  Rate and Reviews
+                  <i className="right fas fa-angle-down" />
                 </p>
               </a>
               <ul className="nav nav-treeview">
                 <li className="nav-item">
                   <a href="pages/forms/general.html" className="nav-link">
-                    <i className="far fa-circle nav-icon" />
-                    <p>Employer Forms</p>
+                    <i className="far fa-star nav-icon" />
+                    <p>Rate and Reviews</p>
                   </a>
                 </li>
                 <li className="nav-item">
                   <a href="pages/forms/advanced.html" className="nav-link">
-                    <i className="far fa-circle nav-icon" />
-                    <p>Employee Forms</p>
+                    <i className="fas fa-neuter nav-icon" />
+                    <p>Inquiries</p>
                   </a>
-                </li>
-                
-                
-                <li className="nav-item">
+                </li>             
+                {/* <li className="nav-item">
                   <a href="pages/forms/validation.html" className="nav-link">
                     <i className="far fa-circle nav-icon" />
                     <p>Validation</p>
                   </a>
-                </li>
+                </li> */}
               </ul>
             </li>
             <li className="nav-item has-treeview">
               <a href="#" className="nav-link">
-                <i className="nav-icon fas fa-table" />
+                <i className="nav-icon fas fa-file-alt" />
                 <p>
-                  Tables
-                  <i className="fas fa-angle-left right" />
+                  Reports
+                  {/* <i className="fas fa-angle-left right" /> */}
                 </p>
               </a>
-              <ul className="nav nav-treeview">
+              {/* <ul className="nav nav-treeview">
                 <li className="nav-item">
                   <a href="pages/tables/simple.html" className="nav-link">
                     <i className="far fa-circle nav-icon" />
@@ -159,9 +159,9 @@ export default function Menu() {
                     <p>jsGrid</p>
                   </a>
                 </li>
-              </ul>
+              </ul> */}
             </li>
-            <li className="nav-header">Importances</li>
+            {/* <li className="nav-header">Importances</li>
             <li className="nav-item">
               <a href="pages/calendar.html" className="nav-link">
                 <i className="nav-icon fas fa-calendar-alt" />
@@ -370,7 +370,7 @@ export default function Menu() {
                 <i className="nav-icon fas fa-file" />
                 <p>Documentation</p>
               </a>
-            </li>
+            </li> */}
        
         
           </ul>
