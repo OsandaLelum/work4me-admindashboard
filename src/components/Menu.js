@@ -53,6 +53,13 @@ export default function Menu() {
                     {/* <i className="right fas fa-angle-left" /> */}
                   </p>
                 </NavLink>
+                <NavLink exact to="/Jobs" className="nav-link">
+                  <i className="nav-icon fas fa-chart-bar" />
+                  <p>
+                    Job Management
+                    {/* <i className="right fas fa-angle-left" /> */}
+                  </p>
+                </NavLink>
                 {/* <ul className="nav nav-treeview">
                   <li className="nav-item">
                     <a href="./index.html" className="nav-link">
@@ -74,8 +81,8 @@ export default function Menu() {
                   </li>
                 </ul> */}
               </li>
-          
-              
+
+
               <li className="nav-item has-treeview">
                 <a href="#" className="nav-link">
                   <i className="nav-icon fas fa-users" />
@@ -105,7 +112,7 @@ export default function Menu() {
                   </li>
                 </ul>
               </li>
-            
+
               <li className="nav-item has-treeview">
                 <a href="#" className="nav-link">
                   <i className="nav-icon fas fa-file-signature" />
@@ -126,7 +133,7 @@ export default function Menu() {
                       <i className="fas fa-neuter nav-icon" />
                       <p>Inquiries</p>
                     </NavLink>
-                  </li>             
+                  </li>
                   {/* <li className="nav-item">
                     <a href="pages/forms/validation.html" className="nav-link">
                       <i className="far fa-circle nav-icon" />
@@ -374,8 +381,8 @@ export default function Menu() {
                   <p>Documentation</p>
                 </a>
               </li> */}
-        
-          
+
+
             </ul>
           </nav>
           {/* /.sidebar-menu */}
