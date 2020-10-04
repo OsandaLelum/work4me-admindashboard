@@ -92,6 +92,12 @@ export default function Menu() {
                   </p>
                 </a>
                 <ul className="nav nav-treeview">
+                <li className="nav-item">
+                    <NavLink to="/userslist" className="nav-link">
+                      <i className="fas fa-user-plus nav-icon" />
+                      <p>Users List</p>
+                    </NavLink>
+                  </li>
                   <li className="nav-item">
                     <NavLink to="/AddUsers" className="nav-link">
                       <i className="fas fa-user-plus nav-icon" />

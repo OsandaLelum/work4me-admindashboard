@@ -4,6 +4,7 @@ import { Route, HashRouter } from "react-router-dom";
 
 import Dashboard from "./Pages/Dashboard";
 import AdminProfile from "./Pages/AdminProfile";
+import UsersList from "./Pages/UsersList";
 import AddUsers from "./Pages/AddUsers";
 import UpdateUsers from "./Pages/UpdateUsers";
 import RemoveUsers from "./Pages/RemoveUsers";
@@ -18,6 +19,7 @@ export default function Content() {
       <div className="content-wrapper">
         <Route exact path="/" component={Dashboard}/>
         <Route path="/AdminProfile" component={AdminProfile}/>
+        <Route path="/userslist" component={UsersList}/>
         <Route path="/AddUsers" component={AddUsers}/>
         <Route path="/UpdateUsers" component={UpdateUsers}/>
         <Route path="/RemoveUsers" component={RemoveUsers}/>

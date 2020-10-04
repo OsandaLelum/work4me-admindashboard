@@ -1,67 +1,155 @@
-import React from 'react'
 
-// const users = [
-//     { _id: 1, first_name: "foo",  last_name: "abc", email: "foo@gmail.com", user_type: "employer"},
-//     { _id: 2, first_name: "bar",  last_name: "efg", email: "bar@gmail.com", user_type: "employer"},
-//     { _id: 3, first_name: "baz",  last_name: "hij", email: "baz@gmail.com", user_type: "employer"}
-//   ];
+import axios from 'axios';
+import React, { Component } from 'react'
+// import axios from './../../../../backend/node_modules/axios';
+// import md5 from 'md5';
 
-export default function AddUsers() {
-    // render(){
-        return(
+
+export default class AddUsers extends Component {
+
+    constructor(props) {
+        super(props);
+
+        this.onChangeFirstName = this.onChangeFirstName.bind(this);
+        this.onChangeLastName = this.onChangeLastName.bind(this);
+        this.onChangeEmail = this.onChangeEmail.bind(this);
+        this.onChangePW = this.onChangePW.bind(this);
+
+        this.state = {
+            Email: '',
+            FirstName: '',
+            LastName: '',
+            PW: ''
+        }
+    }
+
+    onChangeFirstName(e) {
+        this.setState({
+            FirstName: e.target.value
+        });
+    }
+
+    onChangeLastName(e) {
+        this.setState({
+            LastName: e.target.value
+        });
+    }
+    onChangeEmail(e) {
+        this.setState({
+            Email: e.target.value
+        });
+    }
+
+    onChangePW(e) {
+        this.setState({
+            PW: e.target.value
+        });
+    }
+
+    onSubmitNurse(e) {
+        e.preventDefault();
+
+
+        //adding new user to the database
+        const object = {
+            FirstName: this.state.FirstName,
+            LastName: this.state.LastName,
+            Email: this.state.Email,
+            PW: this.state.pw,
+        };
+
+        console.log(object)
+
+        axios.post('http://localhost:4000/users/add', object)
+            .then(res => { console.log(res.data) });
+        console.log("Registered");
+        alert(`Succesfully Registered`);
+
+        this.setState({
+            FirstName: '',
+            LastName: '',
+            Email: '',
+            PW: ''
+        });
+
+    }
+
+    render() {
+        return (
             <div>
-                <div className="card mb-5">
-                    <div className="content-header">
-                        <div className="container-fluid">
-                            <div className="col-sm-6">
-                                <ol className="breadcrumb right">
-                                    <li className="breadcrumb-item"><a href="#">Home</a></li>
-                                    <li className="breadcrumb-item active">Add Users</li>
-                                </ol>
+                <div className="col-12">
+                    <div className="container-fluid">
+                        <div class="row max-height justify-content-center align-items-center">
+                            <div class="col-12 mx-auto">
+                                <div className="row">
+                                    <div className="col-md-12 mt-4">
+                                        <div className="card card-primary">
+                                            <div className="card-header">
+                                                <h3 className="card-title">Add Users Here</h3>
+                                            </div>
+                                            <form role="form">
+                                                <div className="card-body">
+                                                    <div className="row">
+                                                        <div className="col-6">
+                                                            <div className="form-group">
+                                                                <label htmlFor="exampleInputEmail1">First Name</label>
+                                                                <input type="text"
+                                                                    className="form-control"
+                                                                    id="fname"
+                                                                    placeholder="Enter First Name"
+                                                                    value={this.state.FirstName}
+                                                                    onChange={this.onChangeFirstName} />
+                                                            </div>
+                                                        </div>
+                                                        <div className="col-6">
+                                                            <div className="form-group">
+                                                                <label htmlFor="exampleInputEmail1">Last Name</label>
+                                                                <input type="text"
+                                                                    className="form-control"
+                                                                    id="lname"
+                                                                    placeholder="Enter Last Name"
+                                                                    value={this.state.LastName}
+                                                                    onChange={this.onChangeLastName} />
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div className="form-group">
+                                                        <label htmlFor="exampleInputEmail1">Email address</label>
+                                                        <input type="email"
+                                                            className="form-control"
+                                                            id="exampleInputEmail1"
+                                                            placeholder="abc@example.com"
+                                                            value={this.state.Email}
+                                                            onChange={this.onChangeEmail} />
+                                                    </div>
+                                                    <div className="row">
+                                                        <div className="col-6">
+                                                            <div className="form-group">
+                                                                <label htmlFor="exampleInputEmail1">password</label>
+                                                                <input type="password"
+                                                                    className="form-control"
+                                                                    id="pw"
+                                                                    placeholder="Password"
+                                                                    value={this.state.PW}
+                                                                    onChange={this.onChangePW} />
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div className="card-footer">
+                                                    <button type="submit" className="btn btn-primary" onClick={this.onSubmitNurse.bind(this)}>Submit</button>
+                                                </div>
+                                            </form>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
+
                         </div>
                     </div>
+
                 </div>
-                <div style={{display:"flex", justifyContent:"center"}}>
-                    <div className="card" style={{width:"1000px"}}>
-                        <div className="card-header border-0">
-                            <h3 className="card-title">New Users</h3>
-                        </div>
-                        <div className="card-body table-responsive p-2">
-                            <table className="table table-striped table-valign-middle">
-                                <thead>
-                                    <tr>
-                                        <th>First Name</th>
-                                        <th>Last Name</th>
-                                        <th>E-mail</th>
-                                        <th>User Type</th>
-                                        <th>Add</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <tr>
-                                        <td>
-                                            <img
-                                                src="dist/img/default-150x150.png"
-                                                alt="Person"
-                                                className="img-circle img-size-32 mr-2"
-                                            />
-                                            Saman
-                                        </td>
-                                        <td>Perera</td>
-                                        <td>saman.perera@gmail.com</td>
-                                        <td>Employer</td>
-                                        <td>
-                                            <button class="btn-primary">Add</button>
-                                        </td>
-                                        {/* {this.userList()} */}
-                                    </tr>
-                                </tbody>
-                            </table>
-                        </div>
-                    </div>
-                </div> 
             </div>
         )
-    // }
+    }
 }
