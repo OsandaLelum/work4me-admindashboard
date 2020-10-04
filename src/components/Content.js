@@ -11,6 +11,7 @@ import RemoveUsers from "./Pages/RemoveUsers";
 import RateandReviews from "./Pages/RateandReviews";
 import Inquiries from "./Pages/Inquiries";
 import Reports from "./Pages/Reports";
+import Jobs from "./Pages/Jobs"
 
 export default function Content() {
   return (
@@ -25,6 +26,7 @@ export default function Content() {
         <Route path="/RateandReviews" component={RateandReviews}/>
         <Route path="/Inquiries" component={Inquiries}/>
         <Route path="/Reports" component={Reports}/>
+        <Route path="/Jobs" component={Jobs}/>
       </div>
     </HashRouter>
   );

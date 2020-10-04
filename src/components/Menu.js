@@ -46,10 +46,17 @@ export default function Menu() {
               {/* Add icons to the links using the .nav-icon class
               with font-awesome or any other icon font library */}
               <li className="nav-item has-treeview">
-                <NavLink exact to="/Dashboard" className="nav-link">
+                <NavLink exact to="/" className="nav-link">
                   <i className="nav-icon fas fa-chart-bar" />
                   <p>
                     Dashboard
+                    {/* <i className="right fas fa-angle-left" /> */}
+                  </p>
+                </NavLink>
+                <NavLink exact to="/Jobs" className="nav-link">
+                  <i className="nav-icon fas fa-chart-bar" />
+                  <p>
+                    Job Management
                     {/* <i className="right fas fa-angle-left" /> */}
                   </p>
                 </NavLink>
@@ -74,8 +81,8 @@ export default function Menu() {
                   </li>
                 </ul> */}
               </li>
-          
-              
+
+
               <li className="nav-item has-treeview">
                 <a href="#" className="nav-link">
                   <i className="nav-icon fas fa-users" />
@@ -111,7 +118,7 @@ export default function Menu() {
                   </li>
                 </ul>
               </li>
-            
+
               <li className="nav-item has-treeview">
                 <a href="#" className="nav-link">
                   <i className="nav-icon fas fa-file-signature" />
@@ -132,7 +139,7 @@ export default function Menu() {
                       <i className="fas fa-neuter nav-icon" />
                       <p>Inquiries</p>
                     </NavLink>
-                  </li>             
+                  </li>
                   {/* <li className="nav-item">
                     <a href="pages/forms/validation.html" className="nav-link">
                       <i className="far fa-circle nav-icon" />
@@ -380,8 +387,8 @@ export default function Menu() {
                   <p>Documentation</p>
                 </a>
               </li> */}
-        
-          
+
+
             </ul>
           </nav>
           {/* /.sidebar-menu */}
