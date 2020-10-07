@@ -4,7 +4,7 @@ import React, { Component } from 'react'
 // import md5 from 'md5';
 
 
-export default class Add extends Component {
+export default class AddUsers extends Component {
 
     constructor(props) {
         super(props);
@@ -59,7 +59,7 @@ export default class Add extends Component {
 
         console.log(object)
 
-        axios.post('http://localhost:4000/user/add', object)
+        axios.post('http://localhost:4000/users/add', object)
             .then(res => { console.log(res.data) });
         console.log("Registered");
         alert(`Succesfully Registered`);
@@ -73,26 +73,19 @@ export default class Add extends Component {
 
     }
 
-
-
-render() {
-    return (
-        <div>
-            <div className="col-12">
-                <section className="content">
+    render() {
+        return (
+            <div>
+                <div className="col-12">
                     <div className="container-fluid">
                         <div class="row max-height justify-content-center align-items-center">
-                            <div class="col-8 mx-auto">
+                            <div class="col-12 mx-auto">
                                 <div className="row">
-                                    {/* left column */}
-                                    <div className="col-md-6 ml-5 mt-4">
-                                        {/* general form elements */}
+                                    <div className="col-md-12 mt-4">
                                         <div className="card card-primary">
                                             <div className="card-header">
                                                 <h3 className="card-title">Add Users Here</h3>
                                             </div>
-                                            {/* /.card-header */}
-                                            {/* form start */}
                                             <form role="form">
                                                 <div className="card-body">
                                                     <div className="row">
@@ -142,7 +135,6 @@ render() {
                                                         </div>
                                                     </div>
                                                 </div>
-                                                {/* /.card-body */}
                                                 <div className="card-footer">
                                                     <button type="submit" className="btn btn-primary" onClick={this.onSubmitNurse.bind(this)}>Submit</button>
                                                 </div>
@@ -155,10 +147,8 @@ render() {
                         </div>
                     </div>
 
-                </section>
-
+                </div>
             </div>
         )
-    // }
-}
+    }
 }
