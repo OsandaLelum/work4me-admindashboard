@@ -139,7 +139,7 @@ export default function CollapsibleTable() {
           </div>
         </div>
       </div>
-      <div className="card m-2">
+      <div className="card m-2" style={{ height: '600px', overflowY: 'scroll' }}>
         <TableContainer component={Paper}>
           <Table aria-label="collapsible table">
             <TableHead style={{backgroundColor: '#4f5962'}}>
