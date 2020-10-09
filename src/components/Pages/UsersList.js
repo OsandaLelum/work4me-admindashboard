@@ -38,43 +38,50 @@ export default class UsersList extends Component {
 
     render() {
         return (
-          <div className="mt-5">
-                <div className="mt-5">
-                  {/* Main content */}
-                    <div className="row">
-                      <div className="col-12">
-                        <div className="card">
-                          <div className="card-header">
-                            <h3>Details of Users in Work4ME</h3>
-                          </div>
-                          {/* /.card-header */}
-                          <div className="card-body">
-                          <div className="table-striped">
-                            <table id="example2" className="table table-bordered table-hover">
-                              <thead className="thead-dark">
-                                <tr>
-                                  <th>First Name</th>
-                                  <th>Last Name</th>
-                                  <th>Email</th>
-                                </tr>
-                              </thead>
-
-                              <tbody className="table-striped">
-                                      { this.Users() }
-                              </tbody>
-                            </table>
-                            </div>
-                          </div>
-                          {/* /.card-body */}
-                        </div>
-                        {/* /.card */}
+          <div>
+              <div className="content-header">
+                  <div className="row mb-2 mt-3 ml-2 mr-2">
+                      <div className="col-sm-6">
+                          <h1 className="m-0 text-dark">User List</h1>
                       </div>
-                      {/* /.col */}
+                      <div className="col-sm-6">
+                          <ol className="breadcrumb right float-sm-right">
+                              <li className="breadcrumb-item"><a href="/Dashboard">Home</a></li>
+                              <li className="breadcrumb-item active">User List</li>
+                          </ol>
+                      </div>
+                  </div>
+              </div>
+              {/* Main content */}
+              <div className="row">
+                <div className="col-12">
+                  <div className="card ml-3 mr-3">
+                    {/* /.card-header */}
+                    <div className="card-body">
+                      <div className="table-striped">
+                        <table id="example2" className="table table-bordered table-hover">
+                          <thead style={{backgroundColor: '#343a40', color:'rgb(212 212 212)'}}>
+                            <tr>
+                              <th>First Name</th>
+                              <th>Last Name</th>
+                              <th>Email</th>
+                            </tr>
+                        </thead>
+
+                        <tbody className="table-striped">
+                                { this.Users() }
+                        </tbody>
+                      </table>
+                      </div>
                     </div>
-                    {/* /.row */}
-                  {/* /.content */}
+                    {/* /.card-body */}
+                  </div>
+                  {/* /.card */}
                 </div>
-                {/* /.content-wrapper */}
+                {/* /.col */}
+              </div>
+              {/* /.row */}
+            {/* /.content */}
           </div>
 
         )

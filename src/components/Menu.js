@@ -53,13 +53,6 @@ export default function Menu() {
                     {/* <i className="right fas fa-angle-left" /> */}
                   </p>
                 </NavLink>
-                <NavLink exact to="/Jobs" className="nav-link">
-                  <i className="nav-icon fas fa-chart-bar" />
-                  <p>
-                    Job Management
-                    {/* <i className="right fas fa-angle-left" /> */}
-                  </p>
-                </NavLink>
                 {/* <ul className="nav nav-treeview">
                   <li className="nav-item">
                     <a href="./index.html" className="nav-link">
@@ -80,6 +73,15 @@ export default function Menu() {
                     </a>
                   </li>
                 </ul> */}
+              </li>
+              <li className="nav-item has-treeview">
+                  <NavLink exact to="/Jobs" className="nav-link">
+                    <i className="nav-icon fas fa-chart-bar" />
+                    <p>
+                      Job Management
+                      {/* <i className="right fas fa-angle-left" /> */}
+                    </p>
+                  </NavLink>
               </li>
 
 
