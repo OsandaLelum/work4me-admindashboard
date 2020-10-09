@@ -1,10 +1,7 @@
 import React, { Component } from "react";
 
-// import { CenterFocusStrong } from "@material-ui/icons";
-// import { render } from "@testing-library/react";
 import axios from '../../../node_modules/axios';
 import { PieChart } from 'react-minimal-pie-chart';
-// import FullOption from './FullOption';
 
 export default class Dashboard extends Component {
 
@@ -46,14 +43,22 @@ export default class Dashboard extends Component {
     // console.log("The total Jobs Completed : ", this.state.totalJobsCompleted)
 
     //get jobs posted
-    axios.get('http://localhost:4000/jobs/alljobs')
-      .then(response => {
-        this.setState({ 
-          jobsPosted: response.data 
-        });
+    // axios.get('http://localhost:4000/jobs/alljobs')
+    //   .then(response => {
+    //     this.setState({ 
+    //       jobsPosted: response.data.jobsPosted
+    //     });
+    //   })
+    //   .catch(function (error){
+    //     console.log(error);
+    // })
+
+    //count according to the job type
+    axios.get('http://localhost:4000/jobs/countjobType')
+    .then(response=> {
+      this.setState({
+        jobTypeCount : response.data.jobTypeCount
       })
-      .catch(function (error){
-        console.log(error);
     })
   }
 
@@ -126,6 +131,9 @@ export default class Dashboard extends Component {
                           { title: 'Gardening', value: 10, color: '#343a40' },
                           { title: 'Data Entry', value: 15, color: '#6c757d' },
                           { title: 'Delivery Boy', value: 20, color: '#848480' },
+                          // { title: 'Gardening', value: this.state.jobTypeCount[0], color: '#343a40' },
+                          // { title: 'Data Entry', value: this.state.jobTypeCount[1], color: '#6c757d' },
+                          // { title: 'Delivery Boy', value: this.state.jobTypeCount[2], color: '#848480' },
                         ]}
                         style={{height: 270, width: 270}}
                         center={[50, 50]}
