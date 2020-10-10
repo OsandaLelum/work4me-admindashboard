@@ -1,7 +1,7 @@
 import { render } from '@testing-library/react';
 import React, { Component } from 'react'
 
-import StarRatings from '../../../node_modules/react-star-ratings';
+// import StarRatings from '../../../node_modules/react-star-ratings';
 import axios from '../../../node_modules/axios';
 
 // const ReviewsBy = props => (
@@ -103,13 +103,13 @@ export default class RateandReviews extends Component {
                             </div>
                             <div className="pt-3">
                                 {/* { this.Rating() } */}
-                                <StarRatings
+                                {/* <StarRatings
                                     rating={3}
                                     starRatedColor="orange"
                                     numberOfStars={5}
                                     name='rating'
                                     starDimension='30px'
-                                />
+                                /> */}
                             </div>
                             <div>
                                 <hr
@@ -138,13 +138,13 @@ export default class RateandReviews extends Component {
                                 </p>
                             </div>
                             <div className="pt-3">
-                                <StarRatings
+                                {/* <StarRatings
                                     rating={1}
                                     starRatedColor="orange"
                                     numberOfStars={5}
                                     name='rating'
                                     starDimension='30px'
-                                />
+                                /> */}
                             </div>
                             <div>
                                 <hr
@@ -173,13 +173,13 @@ export default class RateandReviews extends Component {
                                 </p>
                             </div>
                             <div className="pt-3">
-                                <StarRatings
+                                {/* <StarRatings
                                     rating={2.5}
                                     starRatedColor="orange"
                                     numberOfStars={5}
                                     name='rating'
                                     starDimension='30px'
-                                />
+                                /> */}
                             </div>
                             <div>
                                 <hr

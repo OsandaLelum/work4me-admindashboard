@@ -1,10 +1,10 @@
 import React, { Component } from 'react';
-import InteractiveTable from "react-interactive-table";
+// import InteractiveTable from "react-interactive-table";
 import axios from '../../../node_modules/axios';
 
 import PropTypes from 'prop-types';
 import { makeStyles } from '@material-ui/core/styles';
-import Box from '@material-ui/core/Box';
+// import Box from '@material-ui/core/Box';
 import Collapse from '@material-ui/core/Collapse';
 import IconButton from '@material-ui/core/IconButton';
 import Table from '@material-ui/core/Table';
@@ -61,7 +61,7 @@ function Row(props) {
       <TableRow>
         <TableCell style={{ paddingBottom: 0, paddingTop: 0 }} colSpan={6}>
           <Collapse in={open} timeout="auto" unmountOnExit>
-            <Box margin={1}>
+            {/* <Box margin={1}>
               <Typography variant="h6" gutterBottom component="div">
                 More Details
               </Typography>
@@ -87,7 +87,7 @@ function Row(props) {
                   ))}
                 </TableBody>
               </Table>
-            </Box>
+            </Box> */}
           </Collapse>
         </TableCell>
       </TableRow>

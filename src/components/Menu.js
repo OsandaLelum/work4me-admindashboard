@@ -87,14 +87,14 @@ export default function Menu() {
                 <a href="#" className="nav-link">
                   <i className="nav-icon fas fa-users" />
                   <p>
-                    Manage Users Accounts
+                    User Management
                     <i className="right fas fa-angle-down" />
                   </p>
                 </a>
                 <ul className="nav nav-treeview">
                 <li className="nav-item">
                     <NavLink to="/userslist" className="nav-link">
-                      <i className="fas fa-user-plus nav-icon" />
+                    <i className="fas fa-user-edit nav-icon" />
                       <p>Users List</p>
                     </NavLink>
                   </li>

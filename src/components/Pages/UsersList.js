@@ -1,82 +1,89 @@
-import axios from 'axios';
 import React, { Component } from 'react'
+import UsersService from '../services/UsersService';
 
-const UserReg = props => (
-    <tr>
-        <td>{props.userlist.firstName}</td>
-        <td>{props.userlist.lastName}</td>
-        <td>{props.userlist.email}</td>
-    </tr>
-)
-
-export default class UsersList extends Component {
-
+class UsersList extends Component {
     constructor(props) {
-        super(props);
-        this.state = {USERS_DATA: []};
+        super(props)
+
+        this.state = {
+                users: []
+        }
     }
 
-    componentDidMount() {
-        axios.get('http://localhost:4000/Users/')
-            .then(response => {
-                this.setState({ USERS_DATA: response.data });
-            })
-            .catch(function (error){
-                console.log(error);
-            })       
+    deleteUser = (id) =>{
+      console.log("delete")
+        UsersService.deleteUsers(id).then( res => {
+          this.setState({users: this.state.users.filter(user => user._id !== id)});
+      });
     }
 
-    Users() {
-        return this.state.USERS_DATA.map(function( currentlist, i){
-            return <UserReg userlist={currentlist} key={i} />;
-        })
+    viewUser =(id) =>{
+        this.props.history.push(`/view-user/${id}`);
+    } 
+    editEmployee = (id) =>{
+        this.props.history.push(`/signup/${id}`);
     }
 
-    /**
-     * @desc Viewing the nurse list of the system by the CARE ME Admin  and can redirect to their profiles
-     */
+    componentDidMount= ()=>{
+        UsersService.getUsers().then((res) => {
+            this.setState({ users: res.data});
+            
+        console.log(this.state.users);
+        });
+    }
+
+    addEmployee =()=>{
+        this.props.history.push('/signup');
+    }
 
     render() {
         return (
-          <div className="mt-5">
-                <div className="mt-5">
-                  {/* Main content */}
-                    <div className="row">
-                      <div className="col-12">
-                        <div className="card">
-                          <div className="card-header">
-                            <h3>Details of Users in Work4ME</h3>
-                          </div>
-                          {/* /.card-header */}
-                          <div className="card-body">
-                          <div className="table-striped">
-                            <table id="example2" className="table table-bordered table-hover">
-                              <thead className="thead-dark">
+            <div className="m-5">
+                 <h2 className="text-center">Users List</h2>
+                 <div className = "row">
+                    <button className="btn btn-primary" onClick={this.addEmployee}> Add User</button>
+                 </div>
+                 <br></br>
+                 <div className = "row">
+                        <table className = "table table-striped table-bordered">
+
+                            <thead>
                                 <tr>
-                                  <th>First Name</th>
-                                  <th>Last Name</th>
-                                  <th>Email</th>
+                                
+                                    <th> User Type</th>
+                                    <th> User First Name</th>
+                                    <th> User Last Name</th>
+                                    <th> User Email</th>
+                                    <th> isVerified </th>
+                                    <th> Actions</th>
                                 </tr>
-                              </thead>
+                            </thead>
+                            <tbody>
+                                {
+                                    this.state.users.map(
+                                        user => 
+                                        <tr key = {user._id}>
+                                        
+                                             <td> {user.userType}</td>
+                                             <td> {user.firstName} </td>   
+                                             <td> {user.lastName}</td>
+                                             <td> {user.email}</td>
+                                             <td> {user.isVerified.toString()}</td>
+                                             <td>
+                                                 <button onClick={ () => this.editUser(user._id)} className="btn btn-info">Update </button>
+                                                 <button style={{marginLeft: "10px"}} onClick={ () => this.deleteUser(user._id)} className="btn btn-danger">Delete </button>
+                                                 <button style={{marginLeft: "10px"}} onClick={ () => this.viewUser(user._id)} className="btn btn-info">View </button>
+                                             </td>
+                                        </tr>
+                                    )
+                                }
+                            </tbody>
+                        </table>
 
-                              <tbody className="table-striped">
-                                      { this.Users() }
-                              </tbody>
-                            </table>
-                            </div>
-                          </div>
-                          {/* /.card-body */}
-                        </div>
-                        {/* /.card */}
-                      </div>
-                      {/* /.col */}
-                    </div>
-                    {/* /.row */}
-                  {/* /.content */}
-                </div>
-                {/* /.content-wrapper */}
-          </div>
-
+                 </div>
+            </div>
         )
     }
 }
+
+export default UsersList

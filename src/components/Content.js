@@ -12,6 +12,7 @@ import RateandReviews from "./Pages/RateandReviews";
 import Inquiries from "./Pages/Inquiries";
 import Reports from "./Pages/Reports";
 import Jobs from "./Pages/Jobs"
+import ViewUser from "./Pages/ViewUser";
 
 export default function Content() {
   return (
@@ -20,7 +21,8 @@ export default function Content() {
         <Route exact path="/" component={Dashboard}/>
         <Route path="/AdminProfile" component={AdminProfile}/>
         <Route path="/userslist" component={UsersList}/>
-        <Route path="/AddUsers" component={AddUsers}/>
+        <Route path = "/view-user/:id" component={ViewUser}/>
+        <Route path="/signup" component={AddUsers}/>
         <Route path="/UpdateUsers" component={UpdateUsers}/>
         <Route path="/RemoveUsers" component={RemoveUsers}/>
         <Route path="/RateandReviews" component={RateandReviews}/>
