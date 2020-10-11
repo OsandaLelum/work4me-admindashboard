@@ -12,6 +12,7 @@
     "mobx": "^5.15.4",
     "mobx-react": "^6.2.2",
     "react": "^16.13.1",
+    "react-charts": "^2.0.0-beta.7",
     "react-dom": "^16.13.1",
     "react-interactive-table": "^1.0.0",
     "react-minimal-pie-chart": "^8.0.1",

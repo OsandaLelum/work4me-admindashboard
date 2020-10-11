@@ -1,13 +1,11 @@
 import React from 'react'
+import { Chart } from 'react-charts'
 
 export default function Reports() {
-    return(
+    
+    return (
         <div className="card-body">
-            <div className="d-flex">
-                <p className="d-flex flex-column">
-                    <span className="text-bold text-lg">Reports</span>
-                </p>
-            </div>
-        </div>
+        </div>   
+
     )
 }
