@@ -170,7 +170,7 @@ export default class AddUsers extends Component {
                                                     </div>
                                                 </div>
                                                 <div className="card-footer">
-                                                    <button type="submit" className="btn btn-primary" onClick={this.onSubmitNurse.bind(this)} style={{backgroundColor: '#343a40'}}>Submit</button>
+                                                    <button type="submit" className="btn btn-primary" onClick={this.onSubmitNurse.bind(this)} style={{backgroundColor: '#343a40', borderColor: '#343a40'}}>Submit</button>
                                                 </div>
                                             </form>
                                         </div>

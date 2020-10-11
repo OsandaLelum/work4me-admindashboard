@@ -38,49 +38,65 @@ class UsersList extends Component {
 
     render() {
         return (
-            <div className="m-5">
-                 <h2 className="text-center">Users List</h2>
-                 <div className = "row">
-                    <button className="btn btn-primary" onClick={this.addEmployee}> Add User</button>
-                 </div>
-                 <br></br>
-                 <div className = "row">
-                        <table className = "table table-striped table-bordered">
+            <div>
+                <div className="content-header">
+                    <div className="container-fluid">
+                        <div className="row mb-2 mt-3">
+                            <div className="col-sm-6">
+                                <h1 className="m-0 text-dark">Users List</h1>
+                            </div>
+                            <div className="col-sm-6">
+                                <ol className="breadcrumb right float-sm-right">
+                                    <li className="breadcrumb-item"><a href="/Dashboard">Home</a></li>
+                                    <li className="breadcrumb-item active">Users List</li>
+                                </ol>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div className="m-5">
+                    <div className = "row">
+                        <button className="btn btn-primary" style={{backgroundColor: '#343a40', borderColor: '#343a40'}} onClick={this.addEmployee}> Add User</button>
+                    </div>
+                    <br></br>
+                    <div className = "row">
+                            <table className = "table table-striped table-bordered">
 
-                            <thead>
-                                <tr>
-                                
-                                    <th> User Type</th>
-                                    <th> User First Name</th>
-                                    <th> User Last Name</th>
-                                    <th> User Email</th>
-                                    <th> isVerified </th>
-                                    <th> Actions</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                {
-                                    this.state.users.map(
-                                        user => 
-                                        <tr key = {user._id}>
-                                        
-                                             <td> {user.userType}</td>
-                                             <td> {user.firstName} </td>   
-                                             <td> {user.lastName}</td>
-                                             <td> {user.email}</td>
-                                             <td> {user.isVerified.toString()}</td>
-                                             <td>
-                                                 <button onClick={ () => this.editUser(user._id)} className="btn btn-info">Update </button>
-                                                 <button style={{marginLeft: "10px"}} onClick={ () => this.deleteUser(user._id)} className="btn btn-danger">Delete </button>
-                                                 <button style={{marginLeft: "10px"}} onClick={ () => this.viewUser(user._id)} className="btn btn-info">View </button>
-                                             </td>
-                                        </tr>
-                                    )
-                                }
-                            </tbody>
-                        </table>
+                                <thead>
+                                    <tr>
+                                    
+                                        <th> User Type</th>
+                                        <th> User First Name</th>
+                                        <th> User Last Name</th>
+                                        <th> User Email</th>
+                                        <th> isVerified </th>
+                                        <th> Actions</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    {
+                                        this.state.users.map(
+                                            user => 
+                                            <tr key = {user._id}>
+                                            
+                                                <td> {user.userType}</td>
+                                                <td> {user.firstName} </td>   
+                                                <td> {user.lastName}</td>
+                                                <td> {user.email}</td>
+                                                <td> {user.isVerified.toString()}</td>
+                                                <td>
+                                                    <button onClick={ () => this.editUser(user._id)} className="btn btn-info">Update </button>
+                                                    <button style={{marginLeft: "10px"}} onClick={ () => this.deleteUser(user._id)} className="btn btn-danger">Delete </button>
+                                                    <button style={{marginLeft: "10px"}} onClick={ () => this.viewUser(user._id)} className="btn btn-info">View </button>
+                                                </td>
+                                            </tr>
+                                        )
+                                    }
+                                </tbody>
+                            </table>
 
-                 </div>
+                    </div>
+                </div>
             </div>
         )
     }
