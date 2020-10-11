@@ -3,6 +3,7 @@ import React, { Component } from 'react'
 import './RateandReview.css';
 
 import axios from '../../../node_modules/axios';
+import StarRatings from '../../../node_modules/react-star-ratings';
 
 export default class RateandReviews extends Component {
     constructor(props) {
@@ -73,6 +74,15 @@ export default class RateandReviews extends Component {
                                                 height: '2px'
                                             }}
                                         />
+                                        <div className="mb-2">
+                                            <StarRatings
+                                                rating={review.ReviewScore}
+                                                starRatedColor="orange"
+                                                numberOfStars={5}
+                                                name='rating'
+                                                starDimension='30px'
+                                            />
+                                        </div>
 
                                     </div>
                             )
