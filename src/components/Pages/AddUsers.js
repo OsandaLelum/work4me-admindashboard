@@ -1,9 +1,7 @@
 
 import axios from 'axios';
 import React, { Component } from 'react'
-// import axios from './../../../../backend/node_modules/axios';
-// import md5 from 'md5';
-
+import UsersService from '../services/UsersService';
 
 export default class AddUsers extends Component {
 
@@ -14,12 +12,14 @@ export default class AddUsers extends Component {
         this.onChangeLastName = this.onChangeLastName.bind(this);
         this.onChangeEmail = this.onChangeEmail.bind(this);
         this.onChangePW = this.onChangePW.bind(this);
+        this. onChangeUserType =this. onChangeUserType.bind(this);
 
         this.state = {
             Email: '',
             FirstName: '',
             LastName: '',
-            PW: ''
+            PW: '',
+            UserType:'',
         }
     }
 
@@ -46,30 +46,36 @@ export default class AddUsers extends Component {
         });
     }
 
+    onChangeUserType(e){
+        this.setState({
+            UserType: e.target.value
+        });
+    }
+
     onSubmitNurse(e) {
         e.preventDefault();
 
-
         //adding new user to the database
-        const object = {
-            FirstName: this.state.FirstName,
-            LastName: this.state.LastName,
-            Email: this.state.Email,
-            PW: this.state.pw,
+        const user = {
+            firstName: this.state.FirstName,
+            lastName: this.state.LastName,
+            email: this.state.Email,
+            password: this.state.pw,
+            userType: this.state.UserType,
         };
 
-        console.log(object)
+        console.log(user)
 
-        axios.post('http://localhost:4000/users/add', object)
-            .then(res => { console.log(res.data) });
-        console.log("Registered");
-        alert(`Succesfully Registered`);
+        UsersService.createUsers(user).then(res =>{
+            this.props.history.push('/userslist');
+        });
 
         this.setState({
             FirstName: '',
             LastName: '',
             Email: '',
-            PW: ''
+            PW: '',
+            UserType:'',
         });
 
     }
@@ -126,16 +132,18 @@ export default class AddUsers extends Component {
                                                             </div>
                                                         </div>
                                                     </div>
-                                                    <div className="form-group">
-                                                        <label htmlFor="exampleInputEmail1">Email address</label>
-                                                        <input type="email"
-                                                            className="form-control"
-                                                            id="exampleInputEmail1"
-                                                            placeholder="abc@example.com"
-                                                            value={this.state.Email}
-                                                            onChange={this.onChangeEmail} />
-                                                    </div>
                                                     <div className="row">
+                                                        <div className="col-6">
+                                                            <div className="form-group">
+                                                                <label htmlFor="exampleInputEmail1">Email address</label>
+                                                                <input type="email"
+                                                                    className="form-control"
+                                                                    id="exampleInputEmail1"
+                                                                    placeholder="abc@example.com"
+                                                                    value={this.state.Email}
+                                                                    onChange={this.onChangeEmail} />
+                                                            </div>
+                                                        </div>
                                                         <div className="col-6">
                                                             <div className="form-group">
                                                                 <label htmlFor="exampleInputEmail1">password</label>
@@ -145,6 +153,18 @@ export default class AddUsers extends Component {
                                                                     placeholder="Password"
                                                                     value={this.state.PW}
                                                                     onChange={this.onChangePW} />
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div className="row">
+                                                        <div className="col-6">
+                                                            <div className="form-group">
+                                                                <label htmlFor="exampleInputEmail1">User Type</label>
+                                                                <input type="email"
+                                                                    className="form-control"
+                                                                    id="exampleInputUserType"
+                                                                    value={this.state.UserType}
+                                                                    onChange={this.onChangeUserType} />
                                                             </div>
                                                         </div>
                                                     </div>

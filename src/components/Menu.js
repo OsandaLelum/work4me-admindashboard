@@ -31,7 +31,7 @@ export default function Menu() {
             </div>
             <div className="info">
               <NavLink to="/AdminProfile" className="d-block">
-                Osanda Lelum
+                Admin
               </NavLink>
             </div>
           </div>
@@ -53,49 +53,27 @@ export default function Menu() {
                     {/* <i className="right fas fa-angle-left" /> */}
                   </p>
                 </NavLink>
+                <NavLink exact to="/Jobs" className="nav-link">
+                  <i className="nav-icon fas fa-chart-bar" />
+                  <p>
+                    Job Management
+                    {/* <i className="right fas fa-angle-left" /> */}
+                  </p>
+                </NavLink>
               </li>
-              <li className="nav-item has-treeview">
-                  <NavLink exact to="/Jobs" className="nav-link">
-                    <i className="nav-icon fas fa-chart-bar" />
-                    <p>
-                      Job Management
-                      {/* <i className="right fas fa-angle-left" /> */}
-                    </p>
-                  </NavLink>
-              </li>
-
-
               <li className="nav-item has-treeview">
                 <a href="#" className="nav-link">
                   <i className="nav-icon fas fa-users" />
                   <p>
-                    Manage Users Accounts
+                    User Management
                     <i className="right fas fa-angle-down" />
                   </p>
                 </a>
                 <ul className="nav nav-treeview">
                 <li className="nav-item">
                     <NavLink to="/userslist" className="nav-link">
-                      <i className="fas fa-user-plus nav-icon" />
+                    <i className="fas fa-user-edit nav-icon" />
                       <p>Users List</p>
-                    </NavLink>
-                  </li>
-                  <li className="nav-item">
-                    <NavLink to="/AddUsers" className="nav-link">
-                      <i className="fas fa-user-plus nav-icon" />
-                      <p> Add Users</p>
-                    </NavLink>
-                  </li>
-                  <li className="nav-item">
-                    <NavLink to="/UpdateUsers" className="nav-link">
-                      <i className="fas fa-user-edit nav-icon" />
-                      <p>Update Users</p>
-                    </NavLink>
-                  </li>
-                  <li className="nav-item">
-                    <NavLink to="/RemoveUsers" className="nav-link">
-                      <i className="fas fa-user-times nav-icon" />
-                      <p> Remove Users</p>
                     </NavLink>
                   </li>
                 </ul>
