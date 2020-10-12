@@ -1,5 +1,5 @@
-import React, { Component } from 'react';
-import InteractiveTable from "react-interactive-table";
+import React, { Component,useState,useEffect }  from 'react';
+// import InteractiveTable from "react-interactive-table";
 import axios from '../../../node_modules/axios';
 
 import PropTypes from 'prop-types';
@@ -17,6 +17,7 @@ import Typography from '@material-ui/core/Typography';
 import Paper from '@material-ui/core/Paper';
 import KeyboardArrowDownIcon from '@material-ui/icons/KeyboardArrowDown';
 import KeyboardArrowUpIcon from '@material-ui/icons/KeyboardArrowUp';
+import { render } from '@testing-library/react';
 
 const useRowStyles = makeStyles({
   root: {
@@ -26,23 +27,26 @@ const useRowStyles = makeStyles({
   },
 });
 
-function createData(complainantFName, complainantLName, complainantUserType, complainedDate, accusedFName, accusedLName, accusationUserType, accusation) {
+function createData(complainantFName, complainantLName, userType, complainedDate, complaint) {
   return {
     complainantFName,
     complainantLName,
-    complainantUserType,
+    userType,
     complainedDate,
-    details: [
-      { accusedFName: 'Palitha', accusedLName: 'Wijewardana', accusationUserType: 'Employer', accusation: 'hdgertd' },
-    ],
+    complaint
   };
 }
 
 function Row(props) {
   const { row } = props;
   const [open, setOpen] = React.useState(false);
+ // const [data, setData] = useState({ hits: [] });
   const classes = useRowStyles();
-
+ /*  useEffect(async () => {
+    const result = await axios('http://localhost:4000/inquiries/inquiriesDetails'); 
+    setData(result.data);
+  }); */
+console.log("FGHFGHFGH",row)
   return (
     <React.Fragment>
       <TableRow className={classes.root}>
@@ -55,7 +59,7 @@ function Row(props) {
           {row.complainantFName}
         </TableCell>
         <TableCell>{row.complainantLName}</TableCell>
-        <TableCell>{row.complainantUserType}</TableCell>
+        <TableCell>{row.userType}</TableCell>
         <TableCell>{row.complainedDate}</TableCell>
       </TableRow>
       <TableRow>
@@ -68,23 +72,48 @@ function Row(props) {
               <Table size="small" aria-label="purchases">
                 <TableHead>
                   <TableRow>
-                    <TableCell style={{fontWeight:'bold'}}>Accused - First Name</TableCell>
-                    <TableCell style={{fontWeight:'bold'}}>Accused - Last Name</TableCell>
-                    <TableCell style={{fontWeight:'bold'}}>Accused - User Type</TableCell>
-                    <TableCell style={{fontWeight:'bold'}}>Accusation</TableCell>
+                    <TableCell style={{fontWeight:'bold'}}>Complaint</TableCell>
+                    <TableCell>
+                      <div className = "row">
+                        
+                      </div>
+                    </TableCell>
                   </TableRow>
                 </TableHead>
                 <TableBody>
-                  {row.details.map((detailsRow) => (
+                  <TableRow>
+                    <TableCell style={{maxWidth: '80px'}}>{row.complaint}</TableCell>
+                    <TableCell style={{maxWidth: '10px'}}>
+                        <div>
+                          <button 
+                            className="btn btn-primary" 
+                            style={{backgroundColor: '#343a40', borderColor: '#343a40', verticalAlign: 'center'}} 
+                            // onClick={this.onUpdate}
+                            > 
+                            Resolved 
+                          </button>
+                        </div>
+                    </TableCell>
+                    {/* <TableCell>{row.complainantUserType}</TableCell>
+                    <TableCell>{row.complainedDate}</TableCell> */}
+                  </TableRow>
+                  {/*{row.details.map((detailsRow) => (
                     <TableRow key={detailsRow.date}>
                       <TableCell component="th" scope="row">
-                        {detailsRow.accusedFName}
+                        {detailsRow.complaint}
                       </TableCell>
-                      <TableCell>{detailsRow.accusedLName}</TableCell>
-                      <TableCell>{detailsRow.accusationUserType}</TableCell>
-                      <TableCell>{detailsRow.accusation}</TableCell>
+                      <TableCell style={{maxWidth: '10px'}}>
+                        <div style={{marginRight: '50px', marginLeft: '60px'}}>
+                          <button 
+                            className="btn btn-primary" 
+                            style={{backgroundColor: '#343a40', borderColor: '#343a40', verticalAlign: 'center'}} 
+                            onClick={this.onUpdate}> 
+                            Resolved 
+                          </button>
+                        </div>
+                      </TableCell>
                     </TableRow>
-                  ))}
+                  ))}*/}
                 </TableBody>
               </Table>
             </Box>
@@ -95,197 +124,106 @@ function Row(props) {
   );
 }
 
-Row.propTypes = {
-  row: PropTypes.shape({
-    calories: PropTypes.number.isRequired,
-    carbs: PropTypes.number.isRequired,
-    fat: PropTypes.number.isRequired,
-    history: PropTypes.arrayOf(
-      PropTypes.shape({
-        amount: PropTypes.number.isRequired,
-        customerId: PropTypes.string.isRequired,
-        date: PropTypes.string.isRequired,
-      }),
-    ).isRequired,
-    name: PropTypes.string.isRequired,
-    price: PropTypes.number.isRequired,
-    protein: PropTypes.number.isRequired,
-  }).isRequired,
-};
+// Row.propTypes = {
+//   row: PropTypes.shape({
+//     calories: PropTypes.number.isRequired,
+//     carbs: PropTypes.number.isRequired,
+//     fat: PropTypes.number.isRequired,
+//     history: PropTypes.arrayOf(
+//       PropTypes.shape({
+//         amount: PropTypes.number.isRequired,
+//         customerId: PropTypes.string.isRequired,
+//         date: PropTypes.string.isRequired,
+//       }),
+//     ).isRequired,
+//     name: PropTypes.string.isRequired,
+//     price: PropTypes.number.isRequired,
+//     protein: PropTypes.number.isRequired,
+//   }).isRequired,
+// };
 
-const rows = [
-  createData('Kamal', 'Perera', 'Employer', '03/08/2020'),
-  createData('Anurudda', 'Hewage', 'Employee', '17/08/2020'),
-  createData('Ranjith', 'Alahakoon', 'Employee', '24/08/2020'),
-  createData('Namali', 'Pathirana', 'Employer', '18/09/2020'),
-  createData('Ananda', 'Perera', 'Employer', '29/09/2020'),
-];
+var row=[];
+// [
+//   createData('Kamal', 'Perera', 'Employer', '03/08/2020'),
+//   createData('Anurudda', 'Hewage', 'Employee', '17/08/2020'),
+//   createData('Ranjith', 'Alahakoon', 'Employee', '24/08/2020'),
+//   createData('Namali', 'Pathirana', 'Employer', '18/09/2020'),
+//   createData('Ananda', 'Perera', 'Employer', '29/09/2020'),
+// ];
+// onUpdate = (e) => {
+//   e.preventDefault();
 
-export default function CollapsibleTable() {
-  return (
-    <div>
-      <div className="content-header">
-        <div className="container-fluid">
-          <div className="row mb-2 mt-3">
-            <div className="col-sm-6">
-              <h1 className="m-0 text-dark">Inquiries</h1>
-            </div>
-            <div className="col-sm-6">
-              <ol className="breadcrumb right float-sm-right">
-                  <li className="breadcrumb-item"><a href="/Dashboard">Home</a></li>
-                  <li className="breadcrumb-item active">Inquiries</li>
-              </ol>
+//   const status = ''
+
+//   axios.put('http://localhost:4000/inquiries/status'})
+//       .then(response => {
+          
+//       });
+  
+// }
+
+export default class Inquiries extends Component {
+
+  constructor(props) {
+    super(props);
+    this.state = { inquiries: [] };
+  }
+  
+  componentDidMount() {
+  
+    //get the inquiries details
+    axios.get('http://localhost:4000/inquiries/inquiriesDetails')
+        .then(response => {
+            row=response.data
+            this.setState({ inquiries: response.data });
+            console.log("ROWWW",this.state.inquiries[0]);
+        })
+        .catch(function (error) {
+            console.log(error);
+        })
+  }
+
+  render(){
+    return (
+      <div>
+        <div className="content-header">
+          <div className="container-fluid">
+            <div className="row mb-2 mt-3">
+              <div className="col-sm-6">
+                <h1 className="m-0 text-dark">Inquiries</h1>
+              </div>
+              <div className="col-sm-6">
+                <ol className="breadcrumb right float-sm-right">
+                    <li className="breadcrumb-item"><a href="/Dashboard">Home</a></li>
+                    <li className="breadcrumb-item active">Inquiries</li>
+                </ol>
+              </div>
             </div>
           </div>
         </div>
+        <div className="card m-2" style={{ height: '600px', overflowY: 'scroll' }}>
+          <TableContainer component={Paper}>
+            <Table aria-label="collapsible table">
+              <TableHead style={{backgroundColor: '#343a40'}}>
+                <TableRow>
+                  <TableCell />
+                  <TableCell style={{color:'rgb(212 212 212)', fontSize: '16px'}}>Complainant - First Name</TableCell>
+                  <TableCell style={{color:'rgb(212 212 212)', fontSize: '16px'}}>Complainant - Last Name</TableCell>
+                  <TableCell style={{color:'rgb(212 212 212)', fontSize: '16px'}}>Complainant - User Type</TableCell>
+                  <TableCell style={{color:'rgb(212 212 212)', fontSize: '16px'}}>Date of Complaint</TableCell>
+                </TableRow>
+              </TableHead>
+              <TableBody>
+                {this.state.inquiries.map((row,i) => {
+                  return(
+                  <Row key={i} row={row} />
+                  )
+                  })}
+              </TableBody>
+            </Table>
+          </TableContainer>
+        </div>
       </div>
-      <div className="card m-2" style={{ height: '600px', overflowY: 'scroll' }}>
-        <TableContainer component={Paper}>
-          <Table aria-label="collapsible table">
-            <TableHead style={{backgroundColor: '#4f5962'}}>
-              <TableRow>
-                <TableCell />
-                <TableCell style={{color:'rgb(212 212 212)', fontSize: '16px'}}>Complainant - First Name</TableCell>
-                <TableCell style={{color:'rgb(212 212 212)', fontSize: '16px'}}>Complainant - Last Name</TableCell>
-                <TableCell style={{color:'rgb(212 212 212)', fontSize: '16px'}}>Complainant - User Type</TableCell>
-                <TableCell style={{color:'rgb(212 212 212)', fontSize: '16px'}}>Date of Complaint</TableCell>
-              </TableRow>
-            </TableHead>
-            <TableBody>
-              {rows.map((row) => (
-                <Row key={row.accusedUserFName} row={row} />
-              ))}
-            </TableBody>
-          </Table>
-        </TableContainer>
-      </div>
-    </div>
-  );
+    );
+  }
 }
-
-
-// class Inquiries extends Component {
-    
-//     constructor(props){
-//         super(props);
-//         this.state = {
-//             complaint: []
-//         };
-        
-//     }
-    
-//     temp=[];
-
-//     componentDidMount(){
-//         /**
-//             * @desc : Retrieves all the complaint records from the backend for the admin to view and filter through
-//         */
-//         axios.get('http://localhost:4000/reviews')
-//           .then(response => {
-//             console.log(response.data);
-//             response.data.forEach(element => {
-//               this.temp.push(element);
-//             });
-
-//             this.setState({ 
-//                 complaint: response.data 
-//             });
-//           })
-//           .catch(function (error) {
-//             console.log(error);
-//           })
-//       }
-    
-//       tabRow(){
-//         const data = this.temp;
-//         return data;
-//       }
-  
-//       render() {
-//         // styles={{
-//         //   backgroundColor: '#4f5962'
-//         // }}
-//         return (
-//           <div>
-//             <div>
-//               <div className="content-header">
-//                 <div className="container-fluid">
-//                   <div className="row mb-2 mt-3">
-//                     <div className="col-sm-6">
-//                       <h1 className="m-0 text-dark">Inquiries</h1>
-//                     </div>
-//                   </div>
-//                 </div>
-//               </div>
-//               <div className="raw">
-//                 <div className="card m-2 p-2">
-//                 {/*
-//                   * @desc : Displays the data retrieved from the backend to the table
-//                   * @requires : The InteractiveTable from react-interactive-table
-//                 */}
-//                   <InteractiveTable
-//                       tableStyles={'responsive'}
-//                       dataList={this.tabRow()} 
-//                       columns={
-//                           {
-//                               accusedUserFName: {
-//                                   alias: 'Accused - First Name',
-//                                   sortable: true,
-//                                   active: false,
-//                                   sortingKey: 'accusedUserFName'
-//                               },
-//                               accusedUserLName: {
-//                                   alias: 'Accused - Last Name',
-//                                   sortable: true,
-//                                   active: false,
-//                                   sortingKey: 'accusedUserLName'
-//                               },
-//                               accusedByFName: {
-//                                   alias: 'Complainant - First Name',
-//                                   sortable: true,
-//                                   active: false,
-//                                   sortingKey: 'accusedByFName'
-//                               },
-//                               accusedByLName: {
-//                                   alias: 'Complainant - Last Name',
-//                                   sortable: true,
-//                                   active: false,
-//                                   sortingKey: 'accusedByLName'
-//                               },
-//                               complaint: {
-//                                 alias: 'Accusation',
-//                                 sortable: false,
-//                                 active: false,
-//                                 sortingKey: 'complaint'
-//                               },
-//                               complainedDate: {
-//                                   alias: 'Date of Complaint',
-//                                   sortable: true,
-//                                   active: false,
-//                                   sortingKey: 'complainedDate'
-//                               }
-//                           }
-//                       }
-//                       searching={{
-//                           active: true,
-//                           searchPlaceholder: 'Search...',
-//                           searchKeys: ['accusedByFName', 'accusedByLName', 'accusedUserFName', 'accusedUserLName']
-//                       }}
-//                       paging={{
-//                           maxRows: 7,
-//                           prevBtn: 'Prev',
-//                           nextBtn: 'Next',
-//                           showAll: true,
-//                           showAllText: 'show all',
-//                           joinPages: false
-//                       }}
-//                   />
-//                 </div>
-//               </div>
-//             </div>
-//           </div>
-//         );
-//       }
-// }
-
-// export default Inquiries;
