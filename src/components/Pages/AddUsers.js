@@ -85,12 +85,25 @@ export default class AddUsers extends Component {
             <div>
                 <div className="col-12">
                     <div className="container-fluid">
+                        <div className="content-header">
+                            <div className="row mb-2 mt-3">
+                                <div className="col-sm-6">
+                                    <h1 className="m-0 text-dark">Add Users</h1>
+                                </div>
+                                <div className="col-sm-6">
+                                    <ol className="breadcrumb right float-sm-right">
+                                        <li className="breadcrumb-item"><a href="/Dashboard">Home</a></li>
+                                        <li className="breadcrumb-item active">Add Users</li>
+                                    </ol>
+                                </div>
+                            </div>
+                        </div>
                         <div class="row max-height justify-content-center align-items-center">
                             <div class="col-12 mx-auto">
                                 <div className="row">
-                                    <div className="col-md-12 mt-4">
+                                    <div className="col-md-12">
                                         <div className="card card-primary">
-                                            <div className="card-header">
+                                            <div className="card-header" style={{backgroundColor: '#343a40'}}>
                                                 <h3 className="card-title">Add Users Here</h3>
                                             </div>
                                             <form role="form">
@@ -157,7 +170,7 @@ export default class AddUsers extends Component {
                                                     </div>
                                                 </div>
                                                 <div className="card-footer">
-                                                    <button type="submit" className="btn btn-primary" onClick={this.onSubmitNurse.bind(this)}>Submit</button>
+                                                    <button type="submit" className="btn btn-primary" onClick={this.onSubmitNurse.bind(this)} style={{backgroundColor: '#343a40', borderColor: '#343a40'}}>Submit</button>
                                                 </div>
                                             </form>
                                         </div>

@@ -37,32 +37,44 @@ class Jobs extends React.Component{
 
   render(){
     //Write the render function to JOB's endpoint parameters (fields/attributes) from the state
-    return <div className="card-body">
-        <div className="d-flex">
-            <p className="d-flex flex-column">
-                <span className="text-bold text-lg">Job Management</span>
-            </p>
+    return(
+      <div>
+        <div className="content-header">
+            <div className="row mb-2 mt-3 ml-2 mr-2">
+                <div className="col-sm-6">
+                    <h1 className="m-0 text-dark">Job Management</h1>
+                </div>
+                <div className="col-sm-6">
+                    <ol className="breadcrumb right float-sm-right">
+                        <li className="breadcrumb-item"><a href="/Dashboard">Home</a></li>
+                        <li className="breadcrumb-item active">Job Management</li>
+                    </ol>
+                </div>
+            </div>
         </div>
-        <div class="container">
-          <table class="table">
-            <tr>
-              <th>Job No</th>
-              <th>Job's Owner</th>
-              <th>Description</th>
-              <th>Approved?</th>
-            </tr>
-            {this.state.jobs.map((job) => (
-            <tr>
-                    <td>{job.id}</td>
-                    <td>{job.name}</td>
-                    <td>{job.username}'s job</td>
-                    <td><input type="checkbox" onClick={this.markAsValid} id={job.id}/></td>
+        <div className="card-body">
+            <div class="container">
+              <table class="table">
+                <tr>
+                  <th>Job No</th>
+                  <th>Job's Owner</th>
+                  <th>Description</th>
+                  <th>Approved?</th>
+                </tr>
+                {this.state.jobs.map((job) => (
+                <tr>
+                        <td>{job.id}</td>
+                        <td>{job.name}</td>
+                        <td>{job.username}'s job</td>
+                        <td><input type="checkbox" onClick={this.markAsValid} id={job.id}/></td>
 
-            </tr>
-        ))}
-          </table>
+                </tr>
+            ))}
+              </table>
+            </div>
         </div>
-    </div>
+      </div>
+    )
   }
 
 }
